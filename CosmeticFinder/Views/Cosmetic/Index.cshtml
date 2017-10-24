@@ -1,0 +1,48 @@
+﻿
+@{
+
+}
+@model List<CosmeticFinder.Models.Cosmetic>
+
+<h1> My Cosmetics</h1>
+<h1>@ViewBag.Title</h1>
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <td>Rating</td>
+        <td>Skin Type</td>
+        <td>Formulation</td>
+        <td>Color</td>
+        <td>Finish</td>
+
+
+
+
+    </tr>
+
+    @foreach (var cosmetic in Model)
+    {
+        <tr>
+            <td>@cosmetic.Name</td>
+            <td>@cosmetic.Description</td>
+            <td>@cosmetic.Rating.ratingScore</td>
+            <td>@cosmetic.SkinType.Name</td>
+            <td>@cosmetic.Formulation.Name</td>
+            <td>@cosmetic.Color.Name</td>
+            <td>@cosmetic.Finish.Name</td>
+
+            <td> <p><a asp-controller="Cosmetic" asp-action="Edit" asp-route-cosmeticId="@cosmetic.ID" asp-route-name="@cosmetic.Name">Edit</a></p></td>
+        </tr>
+    }
+</table>
+
+@if (Model.Count == 0)
+{
+    <p>No cosmetics yet!</p>
+}
+
+<p><a asp-controller="Cosmetic" asp-action="Add">Add</a></p>
+<p><a asp-controller="Cosmetic" asp-action="Remove">Remove</a></p>

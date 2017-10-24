@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace CosmeticFinder.Models
 {
-    public class ErrorViewModel
+    public class User  //my user's "makeup bag"
     {
-        public string RequestId { get; set; }
+      public int ID { get; set; }
+      public string Name { get; set; } //name of user
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 }

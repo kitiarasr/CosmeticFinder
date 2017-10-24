@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 
 namespace CosmeticFinder.Models
 {
-    public class ErrorViewModel
+    public class Rating : CosmeticField
     {
-        public string RequestId { get; set; }
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+        public double ratingScore { get; set; }
+
+
     }
+
 }

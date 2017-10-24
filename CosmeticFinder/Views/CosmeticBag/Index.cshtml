@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<CosmeticFinder.Models.CosmeticBag>
+
+
+<form asp-controller="CosmeticBag" asp-action="ViewCosmeticBag" method="post">
+
+    @foreach (var cBag in Model)
+    {
+        <p>
+            <a asp-controller="CosmeticBag"
+               asp-action="ViewCosmeticBag"
+               asp-route-id="@cBag.ID">
+                WishList @cBag.ID
+            </a>
+        </p>
+
+    }
+    <p><a asp-controller="CosmeticBag" asp-action="Add"> Add WishList </a></p>
+</form>

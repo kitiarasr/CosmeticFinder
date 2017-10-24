@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace CosmeticFinder.Models
 {
-    public class ErrorViewModel
+    public class Color : CosmeticField
     {
-        public string RequestId { get; set; }
+        public string Name { set; get; }
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 }

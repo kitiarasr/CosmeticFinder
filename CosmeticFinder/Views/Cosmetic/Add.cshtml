@@ -1,0 +1,52 @@
+﻿@model CosmeticFinder.ViewModels.AddCosmeticViewModel
+
+<h1>Add Cosmetic</h1>
+
+<div asp-validation-summary="All"></div> 
+<form asp-controller="Cosmetic" asp-action="Add" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input class="form-control" asp-for="Description" />
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ColorID">Color</label>
+        <select asp-for="ColorID" asp-items="Model.Colors"></select>
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FinishID">Finish</label>
+        <select asp-for="FinishID" asp-items="Model.Finishs"></select>
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FormulationID">Formulation</label>
+        <select asp-for="FormulationID" asp-items="Model.Formulations"></select>
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RatingID">Rating</label>
+        <select asp-for="RatingID" asp-items="Model.Ratings"></select>
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SkinTypeID">SkinType</label>
+        <select asp-for="SkinTypeID" asp-items="Model.SkinTypes"></select>
+
+    </div>
+
+
+    <input type="submit" value="Add Cosmetic" />
+
+</form>

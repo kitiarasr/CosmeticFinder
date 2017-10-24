@@ -1,0 +1,21 @@
+﻿@{
+
+    ViewBag.Title = "New WishList";
+
+
+    //erase all below and do the work
+    //  @ViewBag.Title;
+}
+
+
+@model CosmeticFinder.ViewModels.AddCosmeticBagViewModel
+
+
+<form asp-controller="CosmeticBag" asp-action="Add" method="post">
+    <label asp-for="Name"> </label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+
+    <input type="submit" value="Submit" />
+</form>
+

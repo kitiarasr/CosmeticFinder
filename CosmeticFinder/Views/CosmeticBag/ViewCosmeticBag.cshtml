@@ -1,0 +1,21 @@
+﻿@model CosmeticFinder.ViewModels.ViewCosmeticBagViewModel
+@{
+    ViewBag.Title = Model.CosmeticBag.Name;
+
+    //The link in the form creates a url like /Meny/AddItem/5, where
+    //5 is a menu ID which will link to a form to add items to the given menu.
+
+}
+@Model.CosmeticBag.Name
+@if (Model.Items.Count != 0)
+{
+    <ul>
+
+        @foreach (var item in @Model.Items)
+        {
+            <li> @item.Cosmetic.Name </li>
+        }
+    </ul>
+
+}
+<a asp-controller="CosmeticBag" asp-action="Add" asp-route-id="@Model.CosmeticBag.ID">Add List </a>
