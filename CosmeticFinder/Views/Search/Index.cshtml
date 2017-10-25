@@ -1,0 +1,68 @@
+﻿@model CosmeticFinder.ViewModels.SearchCosmeticsViewModel
+
+<h1>@Model.Title</h1>
+
+<div asp-validation-summary="All"></div>
+<form action="/Search/Results">
+    <p>
+        @foreach (var column in Model.Columns)
+        {
+            var checkedColumn = column.Equals(Model.Column);
+
+            <span>
+                <input type="radio"
+                       name="Column"
+                       id="@column"
+                       value="@column"
+                       checked="@checkedColumn" />
+                <label for="@column">@column</label>
+            </span>
+        }
+    </p>
+
+    <p>
+        <label asp-for="Value"></label>
+        <input asp-for="Value" />
+        <span asp-validation-for="Value"></span>
+    </p>
+
+    <input type="submit" value="Search" />
+</form>
+
+<hr />
+
+@if (Model.Cosmetics != null)
+{
+
+    <h3>@Model.Cosmetics.Count Result(s)</h3>
+
+    @foreach (var cosmetic in Model.Cosmetics)
+    {
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>@cosmetic.Name</td>
+            </tr>
+            <tr>
+                <td>Color</td>
+                <td>@cosmetic.Color</td>
+            </tr>
+            <tr>
+                <td>Finish</td>
+                <td>@cosmetic.Finish</td>
+            </tr>
+            <tr>
+                <td>Formulation</td>
+                <td>@cosmetic.Formulation</td>
+            </tr>
+            <tr>
+                <td>Rating</td>
+                <td>@cosmetic.Rating</td>
+            </tr>
+            <tr>
+                <td>Skin Type</td>
+                <td>@cosmetic.SkinType</td>
+            </tr>
+        </table>
+    }
+}

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using CosmeticFinder.Data;
 using CosmeticFinder.Models;
 using CosmeticFinder.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -55,6 +56,26 @@ namespace CosmeticFinder.Controllers
             }
             return View(ViewCBag); //pass in object so view has somethign to work with
 
+        }
+
+        [HttpGet]
+        public IActionResult ViewCosmeticBag(int id)
+        {
+            CosmeticBag getBag = context.CosmeticBags.Where(a => a.ID == id).Single();
+
+
+            List<CosmeticBag_Items> items = context
+                .CosmeticBag_Items
+                .Include(cb => cb.Cosmetic)
+                .Where(cb => cb.CosmeticBagID == id)
+                .ToList();
+
+            ViewCosmeticBagViewModel viewCBagVM = new ViewCosmeticBagViewModel();
+            viewCBagVM.CosmeticBag = getBag;
+            viewCBagVM.Items = items;
+
+
+            return View(viewCBagVM);
         }
     }
 }

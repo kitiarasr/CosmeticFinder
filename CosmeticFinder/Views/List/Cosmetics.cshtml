@@ -1,0 +1,39 @@
+﻿@model CosmeticFinder.ViewModels.SearchCosmeticsViewModel
+
+<h1>@Model.Title</h1>
+
+@if (Model.Cosmetics != null)
+{
+
+    <h3>@Model.Cosmetics.Count Result(s)</h3>
+
+    @foreach (var cosmetic in Model.Cosmetics)
+    {
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>@cosmetic.Name</td>
+            </tr>
+            <tr>
+                <td>Color</td>
+                <td>@cosmetic.Color</td>
+            </tr>
+            <tr>
+                <td>Finish</td>
+                <td>@cosmetic.Finish</td>
+            </tr>
+            <tr>
+                <td>Formulation</td>
+                <td>@cosmetic.Formulation</td>
+            </tr>
+            <tr>
+                <td>Rating</td>
+                <td>@cosmetic.Rating</td>
+            </tr>
+            <tr>
+                <td>Skin Type</td>
+                <td>@cosmetic.SkinType</td>
+            </tr>
+        </table>
+    }
+}

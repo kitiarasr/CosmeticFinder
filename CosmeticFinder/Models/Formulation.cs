@@ -7,7 +7,7 @@ namespace CosmeticFinder.Models
 {
     public class Formulation : CosmeticField
     {
-        public string Name { get; set; }
+        //public string Name { get; set; }
 
     }
 }

@@ -8,7 +8,7 @@ namespace CosmeticFinder.Models
     public class Rating : CosmeticField
     {
 
-        public double ratingScore { get; set; }
+    //    public double Value { get; set; }
 
 
     }

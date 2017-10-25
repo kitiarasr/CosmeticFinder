@@ -25,16 +25,17 @@ namespace CosmeticFinder.Controllers
         public IActionResult Index()
         {
  
-            /*
-                Color newColor = new Color
+            
+           /*     Color newColor = new Color
                 {
-                    Name = "Pink"
+                    Value = "Pink"
+
 
                 };
  
                 Color newColor2 = new Color
                 {
-                    Name = "Red"
+                    Value = "Red"
 
                 };
                 context.Colors.Add(newColor);
@@ -44,13 +45,13 @@ namespace CosmeticFinder.Controllers
 
              Finish newFinish = new Finish
             {
-                Name = "Glittery"
+                Value = "Glittery"
 
             };
 
             Finish newFinish2 = new Finish
             {
-                Name = "Matte"
+                Value = "Matte"
 
             };
            
@@ -60,12 +61,12 @@ namespace CosmeticFinder.Controllers
             ////////////////////////////////////////////////
             Formulation newFormulation = new Formulation
             {
-                Name = "Liquid"
+                Value = "Liquid"
 
             };
             Formulation newFormulation2 = new Formulation
             {
-                Name = "Cream"
+                Value = "Cream"
 
             };
             context.Formulations.Add(newFormulation);
@@ -74,12 +75,12 @@ namespace CosmeticFinder.Controllers
             /////////////////////////////////////////////////
             Rating newRating = new Rating
             {
-                ratingScore = 4.5
+                Value = "4.5"
 
             };
             Rating newRating2 = new Rating
             {
-                ratingScore = 5
+                Value = "5"
 
             };
             context.Ratings.Add(newRating);
@@ -89,12 +90,12 @@ namespace CosmeticFinder.Controllers
 
             SkinType newSkinType = new SkinType
             {
-                Name = "Oily"
+                Value = "Oily"
 
             };
             SkinType newSkinType2 = new SkinType
             {
-                Name = "Dry"
+                Value = "Dry"
 
             };
             context.SkinTypes.Add(newSkinType);
@@ -111,6 +112,7 @@ namespace CosmeticFinder.Controllers
                 .Include(r => r.Rating)
                 .Include(s => s.SkinType)
                 .ToList();
+            //probably have to include the actual objects from db lists instead of references from objects from cosmetics themselves
    
 
             return View(cosmetics);
@@ -130,8 +132,8 @@ namespace CosmeticFinder.Controllers
         {
             if (ModelState.IsValid)// && addCheeseViewModel.CategoryID != 0)
             {
-                if (addCosmeticVM.ColorID != 0 || addCosmeticVM.FormulationID != 0 || addCosmeticVM.FinishID != 0 || addCosmeticVM.RatingID != 0 || addCosmeticVM.SkinTypeID != 0)
-                {
+               //if (addCosmeticVM.ColorID != 0 && addCosmeticVM.FormulationID != 0 && addCosmeticVM.FinishID != 0 && addCosmeticVM.RatingID != 0 && addCosmeticVM.SkinTypeID != 0)
+                //{
                     Cosmetic newCosmetic = new Cosmetic
                     {
                         //fish for all these ids in database
@@ -149,7 +151,7 @@ namespace CosmeticFinder.Controllers
                     context.SaveChanges();
 
                     return Redirect("/Cosmetic");
-                }
+              //  }
             }
 
             return View(addCosmeticVM);

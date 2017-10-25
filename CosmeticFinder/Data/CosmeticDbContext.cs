@@ -34,7 +34,85 @@ namespace CosmeticFinder.Data
             //to make ONE PRIMARY KEY
         }
 
+        public List<Cosmetic> FindByValue(string value)
+        {
+            var results = from j in Cosmetics.Include(c=> c.Color)
+                          .Include(c => c.Formulation)
+                          .Include(c => c.SkinType)
+                          .Include(c => c.Rating)
+                          .Include(c => c.Finish)
+                          .ToList()
+                          where j.Color.Contains(value)
+                          || j.Finish.Contains(value)
+                          || j.Name.ToLower().Contains(value.ToLower())
+                          || j.Formulation.Contains(value)
+                          || j.Rating.Contains(value)
+                          || j.SkinType.Contains(value)
+                          select j;
 
+            return results.ToList();
+        }
+
+
+        /**
+         * Returns results of search the jobs data by key/value, using
+         * inclusion of the search term.
+         */
+        public List<Cosmetic> FindByColumnAndValue(CosmeticFieldType column, string value)
+        {
+           IList <Cosmetic> cosmetics = Cosmetics
+                .Include(f => f.Finish)
+                .Include(c => c.Color)
+                .Include(c => c.Formulation)
+                .Include(r => r.Rating)
+                .Include(s => s.SkinType)
+                .ToList();
+
+
+            var results = from j in cosmetics
+                          where GetFieldByType(j, column).Contains(value)
+                          select j;
+
+            return results.ToList();
+        }
+
+        /**
+         * Returns the JobField of the given type from the Job object,
+         * for all types other than JobFieldType.All. In this case, 
+         * null is returned.
+         */
+        public static CosmeticField GetFieldByType(Cosmetic cosmetic, CosmeticFieldType type)
+        {
+            switch (type)
+            {
+                case CosmeticFieldType.Color:
+                    return cosmetic.Color;
+                case CosmeticFieldType.Finish:
+                    return cosmetic.Finish;
+                case CosmeticFieldType.Formulation:
+                    return cosmetic.Formulation;
+                case CosmeticFieldType.Rating:
+                    return cosmetic.Rating;
+                case CosmeticFieldType.SkinType:
+                    return cosmetic.SkinType;
+            }
+
+            throw new ArgumentException("Cannot get field of type: " + type);
+        }
+
+
+        /**
+         * Returns the Job with the given ID,
+         * if it exists in the store
+         */
+        public Cosmetic Find(int id)
+        {
+            var results = from j in Cosmetics
+                          where j.ID == id
+                          select j;
+
+            return results.Single();
+        }
 
 
 

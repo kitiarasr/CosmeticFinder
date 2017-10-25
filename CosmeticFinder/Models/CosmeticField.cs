@@ -11,7 +11,7 @@ namespace CosmeticFinder.Models
         public int ID { get; set; }
        // public string Name { get; set; } //every field needs a name
         IList<Cosmetic> Cosmetics { get; set; } //every field needs a cosmetic to go with it
-      //  private static int nextId = 1;
+       // private static int nextId = 1;
 
         public string Value { get; set; }
 
@@ -31,6 +31,7 @@ namespace CosmeticFinder.Models
         public bool Contains(string testValue)
         {
             return Value.ToLower().Contains(testValue.ToLower());
+            //VALUE IS BLANK. VALUE I WANT IS ACTUALLY IN TEXT VARIABLE. WHY IS THIS?
         }
 
 

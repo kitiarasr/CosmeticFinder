@@ -41,7 +41,7 @@ namespace CosmeticFinder.ViewModels
                 Colors.Add(new SelectListItem
                 {
                     Value = color.ID.ToString(),
-                    Text = color.Name
+                    Text = color.Value
                 });
             }
 
@@ -51,7 +51,7 @@ namespace CosmeticFinder.ViewModels
                 SkinTypes.Add(new SelectListItem
                 {
                     Value = skinType.ID.ToString(),
-                    Text = skinType.Name
+                    Text = skinType.Value
                 });
             }
 
@@ -61,7 +61,7 @@ namespace CosmeticFinder.ViewModels
                 Formulations.Add(new SelectListItem
                 {
                     Value = formulation.ID.ToString(),
-                    Text = formulation.Name
+                    Text = formulation.Value
                 });
             }
 
@@ -71,7 +71,7 @@ namespace CosmeticFinder.ViewModels
                 Ratings.Add(new SelectListItem
                 {
                     Value = rating.ID.ToString(),
-                    Text = rating.ratingScore.ToString()
+                    Text = rating.Value
                 });
             }
 
@@ -81,7 +81,7 @@ namespace CosmeticFinder.ViewModels
                 Finishs.Add(new SelectListItem
                 {
                     Value = finish.ID.ToString(),
-                    Text = finish.Name
+                    Text = finish.Value
                 });
             }
 
