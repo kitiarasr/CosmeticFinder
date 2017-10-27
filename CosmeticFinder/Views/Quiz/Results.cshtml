@@ -1,0 +1,29 @@
+﻿@*@model CosmeticFinder.ViewModels.ViewQuizViewModel
+
+<h1>@Model</h1>
+
+<div asp-validation-summary="All"></div>
+<form action="/Quiz/Results">
+
+    <p>
+        @foreach (var question in Model.Questions)
+        {
+            <h1> @question.QuestionText</h1>
+                <tr>
+                    <td>
+                        @question.Answers
+                        <a asp-controller="Quiz"
+                           asp-action="Results"
+                           asp-route-column="@Model.Answers"
+                           asp-route-value="@field.">@field.Value</a>
+                    </td>
+                </tr>
+
+        }
+        </p>
+
+
+
+        <input type="submit" value="Search" />
+    </form>
+    }*@

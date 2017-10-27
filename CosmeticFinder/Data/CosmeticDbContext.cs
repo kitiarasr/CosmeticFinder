@@ -18,6 +18,8 @@ namespace CosmeticFinder.Data
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<SkinType> SkinTypes { get; set; }
+        public DbSet<Questions> Questions { get; set; }
+        public DbSet <Answers> Answers { get; set; }
 
 
 

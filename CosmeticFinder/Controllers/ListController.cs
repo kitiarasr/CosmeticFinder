@@ -21,7 +21,7 @@ namespace CosmeticFinder.Controllers
         public IActionResult Index()
         {
             CosmeticListViewModel listVM = new CosmeticListViewModel();
-            listVM.Title = "View Job Fields";
+            listVM.Title = "View Cosmetic Categories";
 
             return View(listVM);
         }

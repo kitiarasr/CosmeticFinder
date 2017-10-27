@@ -1,6 +1,7 @@
 ﻿
 @{
 
+
 }
 @model List<CosmeticFinder.Models.Cosmetic>
 
@@ -34,7 +35,7 @@
             <td>@cosmetic.Color.Value</td>
             <td>@cosmetic.Finish.Value</td>
 
-            <td> <p><a asp-controller="Cosmetic" asp-action="Edit" asp-route-cosmeticId="@cosmetic.ID" asp-route-name="@cosmetic.Name">Edit</a></p></td>
+            @*<td> <p><a asp-controller="Cosmetic" asp-action="Edit" asp-route-cosmeticId="@cosmetic.ID" asp-route-name="@cosmetic.Name">Edit</a></p></td>*@
         </tr>
     }
 </table>
@@ -45,4 +46,3 @@
 }
 
 <p><a asp-controller="Cosmetic" asp-action="Add">Add</a></p>
-<p><a asp-controller="Cosmetic" asp-action="Remove">Remove</a></p>

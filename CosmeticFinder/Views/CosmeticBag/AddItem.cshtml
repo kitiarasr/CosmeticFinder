@@ -1,0 +1,19 @@
+﻿@model CosmeticFinder.ViewModels.AddMenuItemViewModel
+@{
+    ViewBag.Title = "Add Item to WishList: " + Model.CosmeticBag.ID;
+
+    //Menu.ID does not EXIST.
+}
+
+<form asp-controller="CosmeticBag" asp-action="AddItem" method="post">
+    <label asp-for="@Model.CosmeticBag.ID">Add item to Menu:</label>
+
+    <div class="form-group">
+        <label asp-for="cosmeticID"> Cheese</label>
+        <select asp-for="cosmeticID" asp-items="Model.Cosmetics"></select>
+        <input type="hidden" name="cosmeticBagID" value="@Model.CosmeticBag.ID" />
+
+        <input type="submit" value="Submit" />
+    </div>
+
+</form>

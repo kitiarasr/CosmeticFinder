@@ -24,86 +24,116 @@ namespace CosmeticFinder.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
- 
-            
-           /*     Color newColor = new Color
-                {
-                    Value = "Pink"
 
-
-                };
- 
-                Color newColor2 = new Color
-                {
-                    Value = "Red"
-
-                };
-                context.Colors.Add(newColor);
-                context.Colors.Add(newColor2);
-
-            //////////////////////////////////////////////
-
-             Finish newFinish = new Finish
+            Questions question1 = new Questions()
             {
-                Value = "Glittery"
-
+                QuestionText = "What color eyes do you have?"
             };
 
-            Finish newFinish2 = new Finish
+            Questions question2 = new Questions()
             {
-                Value = "Matte"
-
+                QuestionText = "What is your skin Tone?"
             };
+
            
-            context.Finishs.Add(newFinish);
-            context.Finishs.Add(newFinish2);
-
-            ////////////////////////////////////////////////
-            Formulation newFormulation = new Formulation
+            Answers answer1 = new Answers()
             {
-                Value = "Liquid"
-
+                 QuestionID = question1.QuestionsID,
+                AnswerText = "Brown"
             };
-            Formulation newFormulation2 = new Formulation
+            Answers answer2 = new Answers()
             {
-                Value = "Cream"
-
+                QuestionID = question2.QuestionsID,
+                AnswerText = "Blue"
             };
-            context.Formulations.Add(newFormulation);
-            context.Formulations.Add(newFormulation2);
+            context.Questions.Add(question1);
+            context.Questions.Add(question2);
+            context.Answers.Add(answer1);
+            context.Answers.Add(answer2);
 
-            /////////////////////////////////////////////////
-            Rating newRating = new Rating
-            {
-                Value = "4.5"
 
-            };
-            Rating newRating2 = new Rating
-            {
-                Value = "5"
+            context.SaveChanges();
 
-            };
-            context.Ratings.Add(newRating);
-            context.Ratings.Add(newRating2);
 
-            /////////////////////////////////////////////////
 
-            SkinType newSkinType = new SkinType
-            {
-                Value = "Oily"
+            /*     Color newColor = new Color
+                 {
+                     Value = "Pink"
 
-            };
-            SkinType newSkinType2 = new SkinType
-            {
-                Value = "Dry"
 
-            };
-            context.SkinTypes.Add(newSkinType);
-            context.SkinTypes.Add(newSkinType2);
+                 };
 
-            /////////////////////////////////////////////////
+                 Color newColor2 = new Color
+                 {
+                     Value = "Red"
 
-            context.SaveChanges();*/
+                 };
+                 context.Colors.Add(newColor);
+                 context.Colors.Add(newColor2);
+
+             //////////////////////////////////////////////
+
+              Finish newFinish = new Finish
+             {
+                 Value = "Glittery"
+
+             };
+
+             Finish newFinish2 = new Finish
+             {
+                 Value = "Matte"
+
+             };
+
+             context.Finishs.Add(newFinish);
+             context.Finishs.Add(newFinish2);
+
+             ////////////////////////////////////////////////
+             Formulation newFormulation = new Formulation
+             {
+                 Value = "Liquid"
+
+             };
+             Formulation newFormulation2 = new Formulation
+             {
+                 Value = "Cream"
+
+             };
+             context.Formulations.Add(newFormulation);
+             context.Formulations.Add(newFormulation2);
+
+             /////////////////////////////////////////////////
+             Rating newRating = new Rating
+             {
+                 Value = "4.5"
+
+             };
+             Rating newRating2 = new Rating
+             {
+                 Value = "5"
+
+             };
+             context.Ratings.Add(newRating);
+             context.Ratings.Add(newRating2);
+
+             /////////////////////////////////////////////////
+
+             SkinType newSkinType = new SkinType
+             {
+                 Value = "Oily"
+
+             };
+             SkinType newSkinType2 = new SkinType
+             {
+                 Value = "Dry"
+
+             };
+             context.SkinTypes.Add(newSkinType);
+             context.SkinTypes.Add(newSkinType2);
+
+             /////////////////////////////////////////////////
+
+             context.SaveChanges();*/
 
             IList<Cosmetic> cosmetics = context.Cosmetics
                 .Include(f => f.Finish)

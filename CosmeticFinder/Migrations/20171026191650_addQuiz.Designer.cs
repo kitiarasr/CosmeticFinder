@@ -11,9 +11,10 @@ using System;
 namespace CosmeticFinder.Migrations
 {
     [DbContext(typeof(CosmeticDbContext))]
-    partial class CosmeticDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171026191650_addQuiz")]
+    partial class addQuiz
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

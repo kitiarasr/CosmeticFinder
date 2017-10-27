@@ -77,5 +77,41 @@ namespace CosmeticFinder.Controllers
 
             return View(viewCBagVM);
         }
+        [HttpGet]
+        public IActionResult AddItem(int id)
+        {
+            IEnumerable<Cosmetic> cosmetics = context.Cosmetics.ToList();
+
+            CosmeticBag cosB = context.CosmeticBags.Where(a => a.ID == id).Single();
+
+            AddMenuItemViewModel cosmeticBagItemVM = new AddMenuItemViewModel(cosB, cosmetics);
+
+            return View(cosmeticBagItemVM);
+        }
+
+        [HttpPost]
+        public IActionResult AddItem(AddMenuItemViewModel cosmeticBagItemVM)
+        {
+
+            IList<CosmeticBag_Items> existingItems = context.CosmeticBag_Items
+            .Where(cm => cm.CosmeticID == cosmeticBagItemVM.cosmeticID)
+            .Where(cm => cm.CosmeticBagID == cosmeticBagItemVM.cosmeticBagID).ToList();
+
+            if (existingItems.Count == 0)
+            {
+                CosmeticBag_Items cosmeticBag = new CosmeticBag_Items
+                {
+                    CosmeticBagID = cosmeticBagItemVM.cosmeticBagID,
+                    CosmeticID = cosmeticBagItemVM.cosmeticID,
+           
+                };
+                context.CosmeticBag_Items.Add(cosmeticBag);
+                context.SaveChanges();
+            }
+
+            return Redirect("/CosmeticBag/ViewCosmeticBag/" + cosmeticBagItemVM.cosmeticBagID);
+        }
+
+
     }
 }
