@@ -8,16 +8,20 @@
 
 <form asp-controller="CosmeticBag" asp-action="ViewCosmeticBag" method="post">
 
-    @foreach (var cBag in Model)
-    {
-        <p>
-            <a asp-controller="CosmeticBag"
-               asp-action="ViewCosmeticBag"
-               asp-route-id="@cBag.ID">
-                WishList @cBag.ID
-            </a>
-        </p>
+     <div class="table">
+        @foreach (var cBag in Model)
+        {
+            <p> 
+                <a asp-controller="CosmeticBag"
+                   asp-action="ViewCosmeticBag"
+                   asp-route-id="@cBag.ID">
+                    @cBag.Name
+                </a>
+            </p>
 
-    }
-    <p><a asp-controller="CosmeticBag" asp-action="Add"> Add WishList </a></p>
+
+        }
+        </div>
+
+        <p><a asp-controller="CosmeticBag" asp-action="Add"> Add WishList </a></p>
 </form>

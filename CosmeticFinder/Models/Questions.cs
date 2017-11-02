@@ -10,7 +10,7 @@ namespace CosmeticFinder.Models
         public int QuestionsID { get; set; }
         //Fill this list of answers with whats in db according to QUESTION ID
         public List<Answers> Answers { get; set; } = new List<Answers>();
-        public int choiceID { get; set; }  //choice user makes. ViewModel Stuff only
+       // public int choiceID { get; set; }  //choice user makes. ViewModel Stuff only
         static public int QuestionNumber { get; set; }
         public string QuestionText { get; set; }
 

@@ -21,6 +21,8 @@ namespace CosmeticFinder.Data
         public DbSet<Questions> Questions { get; set; }
         public DbSet <Answers> Answers { get; set; }
 
+       // public DbSet <Responses> Responses { get; set; } //suggestions to answers
+
 
 
         public CosmeticDbContext(DbContextOptions<CosmeticDbContext> options)

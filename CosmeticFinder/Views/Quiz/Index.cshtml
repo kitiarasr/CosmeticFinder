@@ -1,19 +1,19 @@
-﻿@*@model CosmeticFinder.ViewModels.ViewQuizViewModel
+﻿@model CosmeticFinder.ViewModels.ViewQuizViewModel
 
 <h1>@Model</h1>
 
-<div asp-validation-summary="All"></div>
+@*<div asp-validation-summary="All"></div>
 <form action="/Quiz/Results">
 
     <p>
-    <h1> @Model.QuestionText</h1>
-            @foreach (var answer in question.Answers)
+   
+            @foreach (var question in Model.QuestionList)
             {
-                var checkedAnswer = answer.Equals(answer);
+                var checkedAnswer = question.Answers.Equals(question.Answers);
                 <span>
                     <input type="radio"
                            name="Choice"
-                           id="@question.choiceID"
+                           <input type="hidden" id="@ .choiceID" />
                            value="@answer"
                            checked="@checkedAnswer" />
                     <label for="@answer">@answer</label>
@@ -31,7 +31,7 @@
 
 
     <input type="submit" value="Search" />
-</form>
+</form>*@
 
 
-}*@
+}

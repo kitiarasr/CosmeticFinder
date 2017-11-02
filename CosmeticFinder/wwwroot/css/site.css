@@ -1,6 +1,51 @@
-﻿body {
+﻿header {
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: url('../images/makeupwallpaperone.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+
+}
+
+ul{
+
+    background-color: #f2dede;
+}
+
+ul.nav{
+    background-color: #000000;
+}
+
+h1{
+    color: gray;
+}
+
+.pinkbody {
+    background-color: #f2dede;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.table {
+    background-color: #f2dede;
+
+}
+.result {
+    background-color: #f2dede;
+    table-layout: fixed;
+    word-wrap: break-word;
+    width: 25%;
+}
+.cosmetic_listing {
+    margin: 30px auto;
+    border: 1px solid #e4e4e4;
+    width: 80%;
 }
 
 /* Wrapping element */
@@ -8,6 +53,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+ 
 }
 
 /* Carousel */
@@ -33,3 +79,4 @@
         display: none;
     }
 }
+

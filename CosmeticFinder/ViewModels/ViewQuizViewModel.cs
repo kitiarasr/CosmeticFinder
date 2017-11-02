@@ -9,9 +9,13 @@ namespace CosmeticFinder.ViewModels
 {
     public class ViewQuizViewModel
     {
-        public Questions Questions { get; set; }
+        public Questions Questions { get; set; }   //Question object reference
         public int QuestionID { get; set; }
-        IDictionary<int, string> AnswerHolder = new Dictionary<int, string>();
+        // public IDictionary<int, int> ChoiceHolder = new Dictionary<int, int>(); //every questionid will pertain to one chosen answer
+        public List<int> ChoiceHolder = new List<int>(5);                                                                      // public string AnswerResponse { get; set; }
+                                                                                                                               // public IDictionary<int, string> AnswerHolder = new Dictionary<int, string>();
+       // public List<int> AnswerHolder = new List<int>(5);
+        public List<Questions> QuestionList;
 
 
         //populate for the number of questions that I have

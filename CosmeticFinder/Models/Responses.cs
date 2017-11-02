@@ -5,12 +5,10 @@ using System.Threading.Tasks;
 
 namespace CosmeticFinder.Models
 {
-    public class Answers
+    public class Responses
     {
         public int AnswersID { get; set; }
         public int QuestionID { get; set; } //every answer is associated with a question
-        public string AnswerLetter { get; set; }
-        public string AnswerText { get; set; }
-
+        public string AnswerResponse { get; set; }
     }
 }

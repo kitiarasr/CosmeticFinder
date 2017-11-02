@@ -24,7 +24,7 @@ namespace CosmeticFinder.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-
+            /*
             Questions question1 = new Questions()
             {
                 QuestionText = "What color eyes do you have?"
@@ -38,21 +38,25 @@ namespace CosmeticFinder.Controllers
            
             Answers answer1 = new Answers()
             {
-                 QuestionID = question1.QuestionsID,
-                AnswerText = "Brown"
+                QuestionID = question1.QuestionsID,
+                AnswerLetter = "A",
+                AnswerText = "Brown",
+               // AnswerResponse = "Golden eyeshadow shades would suite you best"
             };
             Answers answer2 = new Answers()
             {
                 QuestionID = question2.QuestionsID,
-                AnswerText = "Blue"
+                AnswerLetter = "B",
+                AnswerText = "Blue",
+              //  AnswerResponse = "Red eyeshadow would be the bomb dot com!"
             };
             context.Questions.Add(question1);
             context.Questions.Add(question2);
             context.Answers.Add(answer1);
-            context.Answers.Add(answer2);
+            context.Answers.Add(answer2);*/
 
 
-            context.SaveChanges();
+          //  context.SaveChanges();
 
 
 
